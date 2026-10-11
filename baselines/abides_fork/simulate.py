@@ -65,6 +65,24 @@ def simulate(
     config = build_config(scenario)
     t0 = time.perf_counter()
     end_state = abides.run(config)
+    # ################################################################
+    # import cProfile
+    # import pstats
+
+    # profiler = cProfile.Profile()
+
+    # profiler.enable()
+    # end_state = abides.run(config)
+    # profiler.disable()
+
+    # profiler.dump_stats("/tmp/s001_kernel.prof")
+
+    # pstats.Stats(profiler) \
+    #     .strip_dirs() \
+    #     .sort_stats("cumtime") \
+    #     .print_stats(30)
+    # #################################################################
+        
     wall_clock_sec = time.perf_counter() - t0
     peak_memory_bytes = _peak_rss_bytes()
 
